@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.StatusSignal;
 import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -22,9 +23,12 @@ public class Shooter extends SubsystemBase {
   private final TalonFX Motor1 = new TalonFX(Constants.Motor1);
   private final TalonFX Motor2 = new TalonFX(Constants.Motor2);
 
+  private final PIDController controller1 = new PIDController(0.1, 0.000005, 0.000025);
+  private final PIDController controller2 = new PIDController(0.1, 0.000005, 0.000025);
+
   public Shooter() {
-
-
+    Motor1.setInverted(false);
+    Motor2.setInverted(false);
   }
 
   @Override
@@ -43,8 +47,8 @@ public class Shooter extends SubsystemBase {
   }
 
   public void ShooterController(double input){
-    Motor1.set(input);
-    Motor2.set(input);
+    Motor1.setVoltage(controller1.calculate(Motor1.getVelocity().getValueAsDouble(), input));
+    Motor2.setVoltage(controller2.calculate(Motor2.getVelocity().getValueAsDouble(), input));
 
     //Motor1.set(speed1);
 

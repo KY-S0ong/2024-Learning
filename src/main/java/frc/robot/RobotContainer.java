@@ -25,8 +25,8 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final XboxController xboxController = new XboxController(Constants.XboxPort);
-  private final Shooter m_exampleSubsystem = new Shooter();
-  private final ShooterCMD m_exampleCommand = new ShooterCMD(m_exampleSubsystem, xboxController);
+  private final Shooter m_Shooter = new Shooter();
+  private final ShooterCMD m_drivCmd = new ShooterCMD(m_Shooter, xboxController);
   
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -37,6 +37,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    m_Shooter.setDefaultCommand(m_drivCmd);
   }
 
   /**
@@ -50,7 +51,7 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new JoystickButton(xboxController, 1);
+    //new JoystickButton(xboxController, 1);
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
