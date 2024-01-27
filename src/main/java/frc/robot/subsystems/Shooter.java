@@ -47,6 +47,7 @@ public class Shooter extends SubsystemBase {
   }
 
   public void ShooterController(double input){
+    input = (Math.abs(input)<0.13) ? 0:input;
     Motor1.setVoltage(controller1.calculate(Motor1.getVelocity().getValueAsDouble(), input));
     Motor2.setVoltage(controller2.calculate(Motor2.getVelocity().getValueAsDouble(), input));
 
