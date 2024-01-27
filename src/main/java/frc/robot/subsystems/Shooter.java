@@ -44,7 +44,7 @@ public class Shooter extends SubsystemBase {
 
   public void ShooterController(double input){
     Motor1.set(input);
-    
+    Motor2.set(input);
 
     //Motor1.set(speed1);
 
