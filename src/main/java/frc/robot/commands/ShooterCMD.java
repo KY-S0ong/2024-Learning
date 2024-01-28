@@ -37,9 +37,9 @@ public class ShooterCMD extends Command {
   @Override
   public void execute() {
 
-    //m_subsystem.ShooterController(100*xc.getLeftY());
-    m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
-    m_subsystem.ShooterController(100*xc.getLeftTriggerAxis());
+    m_subsystem.ShooterController(100*xc.getLeftY());
+    //m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
+    //m_subsystem.ShooterController(100*xc.getLeftTriggerAxis());
 
   }
 
