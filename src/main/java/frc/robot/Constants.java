@@ -17,13 +17,17 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
-public static final int motor1 = 0;
-public static final int motor2 = 0;
-public static final int motor3 = 0;
-public static final int motor4 = 0;
 
+public static final int Motor1 = 0; //Learning
+public static final int Motor2 = 0; //Learning
 
-public static final int Motor1 = 0;
-public static final int Motor2 = 0;
 public static final int XboxPort = 0;
+public static final int ShooterFalcon1 = 0;
+public static final int ShooterFalcon2 = 0;
+public static double kP = 0;
+public static double kI = 0;
+public static double kD = 0;
+public static double kV = 0;
+
+
 }
