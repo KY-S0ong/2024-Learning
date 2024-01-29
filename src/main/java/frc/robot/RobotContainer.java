@@ -8,6 +8,7 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.RunShooterForwards;
+import frc.robot.commands.RunShooterReverse;
 import frc.robot.commands.ShooterCMD;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
@@ -29,7 +30,7 @@ public class RobotContainer {
   private final Shooter m_Shooter = new Shooter();
   //private final ShooterCMD m_drivCmd = new ShooterCMD(m_Shooter, xboxController);
   private final RunShooterForwards runShooterForwards = new RunShooterForwards(m_Shooter, xboxController);
-
+  private final RunShooterReverse runShooterReverse = new RunShooterReverse(m_Shooter, xboxController);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -41,6 +42,7 @@ public class RobotContainer {
     configureBindings();
     //m_Shooter.setDefaultCommand(m_drivCmd);
     m_Shooter.setDefaultCommand(runShooterForwards);
+    m_Shooter.setDefaultCommand(runShooterReverse);
 
   }
 

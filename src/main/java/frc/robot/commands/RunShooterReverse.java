@@ -8,13 +8,13 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Shooter;
 
-public class RunShooterForwards extends Command {
-  /** Creates a new RunShooterF. */
+public class RunShooterReverse extends Command {
+  /** Creates a new RunShooterReverse. */
   private final Shooter m_subsystem;
   private XboxController xc;
 
-  
-  public RunShooterForwards(Shooter subsystem, XboxController x) {
+
+  public RunShooterReverse(Shooter subsystem, XboxController x) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_subsystem = subsystem;
     xc = x;    
@@ -30,8 +30,6 @@ public class RunShooterForwards extends Command {
   @Override
   public void execute() {
     m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
-
-
   }
 
   // Called once the command ends or is interrupted.
