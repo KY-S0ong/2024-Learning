@@ -4,55 +4,39 @@
 
 package frc.robot.commands;
 
-
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Shooter;
 
-/** An example command that uses an example subsystem. */
-public class ShooterCMD extends Command {
-  
-  private final Shooter m_subsystem;
+public class RunShooterForwards extends Command {
+  /** Creates a new RunShooterF. */
+   private final Shooter m_subsystem;
   private XboxController xc;
 
-  /**
-   * Creates a new ExampleCommand.
-   *
-   * @param subsystem The subsystem used by this command.
-   */
-  public ShooterCMD(Shooter subsystem, XboxController x) {
+  
+  public RunShooterForwards(Shooter subsystem, XboxController x) {
+    // Use addRequirements() here to declare subsystem dependencies.
     m_subsystem = subsystem;
-    xc = x;
+    xc = x;    
 
     addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
 
-    //m_subsystem.ShooterController(100*xc.getLeftY());
-    //m_subsystem.ShooterController(-100*xc.getLeftTriggerAxis());
-   //m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
-    
-
-    //m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
-    //m_subsystem.ShooterController(100*xc.getLeftTriggerAxis());
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    m_subsystem.ShooterController(0);
-
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

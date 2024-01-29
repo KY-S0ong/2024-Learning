@@ -28,7 +28,7 @@ public class Shooter extends SubsystemBase {
 
   public Shooter() {
     Motor1.setInverted(false);
-    Motor2.setInverted(false);
+    Motor2.setInverted(true);
   }
 
   @Override
