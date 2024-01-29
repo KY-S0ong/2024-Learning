@@ -23,8 +23,8 @@ public class Shooter extends SubsystemBase {
   private final TalonFX Motor1 = new TalonFX(Constants.Motor1);
   private final TalonFX Motor2 = new TalonFX(Constants.Motor2);
 
-  private final PIDController controller1 = new PIDController(Constants.kP, Constants.kI, Constants.kD);
-  private final PIDController controller2 = new PIDController(0.1, 0.000005, 0.000025);
+  private final PIDController controller1 = new PIDController(Constants.kP1, Constants.kI1, Constants.kD1);
+  private final PIDController controller2 = new PIDController(Constants.kP2, Constants.kI2, Constants.kD2);
 
   public Shooter() {
     Motor1.setInverted(false);
@@ -40,9 +40,17 @@ public class Shooter extends SubsystemBase {
 
     SmartDashboard.putNumber("Speed M1", ShooterSpeed1);
     SmartDashboard.putNumber("Aceleration M1", ShooterAcel1);
-
     SmartDashboard.putNumber("Speed M2", ShooterSpeed2);
     SmartDashboard.putNumber("Aceleration M2", ShooterAcel2);
+
+    SmartDashboard.putNumber("P1", Constants.kP1);
+    SmartDashboard.putNumber("I2;", Constants.kI1);
+    SmartDashboard.putNumber("D1", Constants.kD1);
+
+    SmartDashboard.putNumber("P1", Constants.kP2);
+    SmartDashboard.putNumber("I2;", Constants.kI2);
+    SmartDashboard.putNumber("D1", Constants.kD2);
+    
 
   }
 
