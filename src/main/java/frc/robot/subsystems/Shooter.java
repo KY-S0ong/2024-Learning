@@ -56,6 +56,11 @@ public class Shooter extends SubsystemBase {
 
 
   }
+
+public void shooterZero() {
+    Motor1.set(0);
+    Motor2.set(0);
+}
   
 
   

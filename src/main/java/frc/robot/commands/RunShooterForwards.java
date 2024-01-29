@@ -10,16 +10,15 @@ import frc.robot.subsystems.Shooter;
 
 public class RunShooterForwards extends Command {
   /** Creates a new RunShooterF. */
-  private final Shooter m_subsystem;
+  private final Shooter shooter;
   private XboxController xc;
 
   
-  public RunShooterForwards(Shooter subsystem, XboxController x) {
+  public RunShooterForwards(Shooter shooter) {
     // Use addRequirements() here to declare subsystem dependencies.
-    m_subsystem = subsystem;
-    xc = x;    
+    this.shooter = shooter;
 
-    addRequirements(subsystem);
+    addRequirements(shooter);
   }
 
   // Called when the command is initially scheduled.
@@ -29,14 +28,16 @@ public class RunShooterForwards extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
+    shooter.ShooterController(100);
 
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    shooter.shooterZero();
+  }
 
   // Returns true when the command should end.
   @Override
