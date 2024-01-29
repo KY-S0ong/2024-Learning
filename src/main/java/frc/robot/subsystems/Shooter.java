@@ -23,7 +23,7 @@ public class Shooter extends SubsystemBase {
   private final TalonFX Motor1 = new TalonFX(Constants.Motor1);
   private final TalonFX Motor2 = new TalonFX(Constants.Motor2);
 
-  private final PIDController controller1 = new PIDController(0.1, 0.000005, 0.000025);
+  private final PIDController controller1 = new PIDController(Constants.kP, Constants.kI, Constants.kD);
   private final PIDController controller2 = new PIDController(0.1, 0.000005, 0.000025);
 
   public Shooter() {

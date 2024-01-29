@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Shooter;
@@ -12,7 +13,7 @@ public class RunShooterForwards extends Command {
   /** Creates a new RunShooterF. */
   private final Shooter shooter;
   private XboxController xc;
-
+  private final SlewRateLimiter filter = new SlewRateLimiter(5);
   
   public RunShooterForwards(Shooter shooter) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -28,7 +29,7 @@ public class RunShooterForwards extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.ShooterController(100);
+    shooter.ShooterController(filter.calculate(50));
 
 
   }
