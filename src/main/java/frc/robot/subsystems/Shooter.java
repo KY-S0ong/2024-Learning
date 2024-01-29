@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
-  private double speed1;
-  private double acel1;
+  private double ShooterSpeed1;
+  private double ShooterAcel1;
 
-  private double speed2;
-  private double acel2;
+  private double ShooterSpeed2;
+  private double ShooterAcel2;
 
   private final TalonFX Motor1 = new TalonFX(Constants.Motor1);
   private final TalonFX Motor2 = new TalonFX(Constants.Motor2);
@@ -33,16 +33,16 @@ public class Shooter extends SubsystemBase {
 
   @Override
   public void periodic() {
-    speed1 = Motor1.getVelocity().getValueAsDouble();
-    acel1 = Motor1.getAcceleration().getValueAsDouble();
-    speed2 = Motor2.getVelocity().getValueAsDouble();
-    acel2 = Motor2.getAcceleration().getValueAsDouble();
+    ShooterSpeed1 = Motor1.getVelocity().getValueAsDouble();
+    ShooterAcel1 = Motor1.getAcceleration().getValueAsDouble();
+    ShooterSpeed2 = Motor2.getVelocity().getValueAsDouble();
+    ShooterAcel2 = Motor2.getAcceleration().getValueAsDouble();
 
-    SmartDashboard.putNumber("Speed M1", speed1);
-    SmartDashboard.putNumber("Aceleration M1", acel1);
+    SmartDashboard.putNumber("Speed M1", ShooterSpeed1);
+    SmartDashboard.putNumber("Aceleration M1", ShooterAcel1);
 
-    SmartDashboard.putNumber("Speed M2", speed2);
-    SmartDashboard.putNumber("Aceleration M2", acel2);
+    SmartDashboard.putNumber("Speed M2", ShooterSpeed2);
+    SmartDashboard.putNumber("Aceleration M2", ShooterAcel2);
 
   }
 
@@ -51,7 +51,7 @@ public class Shooter extends SubsystemBase {
     Motor1.setVoltage(controller1.calculate(Motor1.getVelocity().getValueAsDouble(), input));
     Motor2.setVoltage(controller2.calculate(Motor2.getVelocity().getValueAsDouble(), input));
 
-    //Motor1.set(speed1);
+    //Motor1.set(ShooterSpeed1);
 
 
 

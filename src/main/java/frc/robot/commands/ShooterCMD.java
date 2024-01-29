@@ -37,7 +37,11 @@ public class ShooterCMD extends Command {
   @Override
   public void execute() {
 
-    m_subsystem.ShooterController(100*xc.getLeftY());
+    //m_subsystem.ShooterController(100*xc.getLeftY());
+    m_subsystem.ShooterController(100*xc.getLeftTriggerAxis());
+    m_subsystem.ShooterController(-100*xc.getRightTriggerAxis());
+    
+
     //m_subsystem.ShooterController(100*xc.getRightTriggerAxis());
     //m_subsystem.ShooterController(100*xc.getLeftTriggerAxis());
 
@@ -46,7 +50,6 @@ public class ShooterCMD extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-
     m_subsystem.ShooterController(0);
 
   }
