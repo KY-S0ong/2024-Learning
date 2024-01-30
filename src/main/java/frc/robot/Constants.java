@@ -18,15 +18,15 @@ public final class Constants {
   }
 
 
-public static final int Motor1 = 0; //Learning
-public static final int Motor2 = 0; //Learning
+public static final int ShooterMotor1 = 5; //Learning
+public static final int ShooterMotor2 = 6; //Learning
 
 public static final int XboxPort = 0;
-public static final int ShooterFalcon1 = 0;
-public static final int ShooterFalcon2 = 0;
+
 public static double kP1 = 0;
 public static double kI1 = 0;
 public static double kD1 = 0;
+
 public static double kP2 = 0;
 public static double kI2 = 0;
 public static double kD2 = 0;

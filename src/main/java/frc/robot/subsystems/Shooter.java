@@ -20,23 +20,23 @@ public class Shooter extends SubsystemBase {
   private double ShooterSpeed2;
   private double ShooterAcel2;
 
-  private final TalonFX Motor1 = new TalonFX(Constants.Motor1);
-  private final TalonFX Motor2 = new TalonFX(Constants.Motor2);
+  private final TalonFX ShooterMotor1 = new TalonFX(Constants.ShooterMotor1);
+  private final TalonFX ShooterMotor2 = new TalonFX(Constants.ShooterMotor2);
 
   private final PIDController controller1 = new PIDController(Constants.kP1, Constants.kI1, Constants.kD1);
   private final PIDController controller2 = new PIDController(Constants.kP2, Constants.kI2, Constants.kD2);
 
   public Shooter() {
-    Motor1.setInverted(false);
-    Motor2.setInverted(true);
+    ShooterMotor1.setInverted(false);
+    ShooterMotor2.setInverted(true);
   }
 
   @Override
   public void periodic() {
-    ShooterSpeed1 = Motor1.getVelocity().getValueAsDouble();
-    ShooterAcel1 = Motor1.getAcceleration().getValueAsDouble();
-    ShooterSpeed2 = Motor2.getVelocity().getValueAsDouble();
-    ShooterAcel2 = Motor2.getAcceleration().getValueAsDouble();
+    ShooterSpeed1 = ShooterMotor1.getVelocity().getValueAsDouble();
+    ShooterAcel1 = ShooterMotor1.getAcceleration().getValueAsDouble();
+    ShooterSpeed2 = ShooterMotor2.getVelocity().getValueAsDouble();
+    ShooterAcel2 = ShooterMotor2.getAcceleration().getValueAsDouble();
 
     SmartDashboard.putNumber("Speed M1", ShooterSpeed1);
     SmartDashboard.putNumber("Aceleration M1", ShooterAcel1);
@@ -56,18 +56,18 @@ public class Shooter extends SubsystemBase {
 
   public void ShooterController(double input){
     input = (Math.abs(input)<0.13) ? 0:input;
-    Motor1.setVoltage(controller1.calculate(Motor1.getVelocity().getValueAsDouble(), input));
-    Motor2.setVoltage(controller2.calculate(Motor2.getVelocity().getValueAsDouble(), input));
+    ShooterMotor1.setVoltage(controller1.calculate(ShooterMotor1.getVelocity().getValueAsDouble(), input));
+    ShooterMotor2.setVoltage(controller2.calculate(ShooterMotor2.getVelocity().getValueAsDouble(), input));
 
-    //Motor1.set(ShooterSpeed1);
+    //ShooterMotor1.set(ShooterSpeed1);
 
 
 
   }
 
 public void shooterZero() {
-    Motor1.set(0);
-    Motor2.set(0);
+    ShooterMotor1.set(0);
+    ShooterMotor2.set(0);
 }
   
 
