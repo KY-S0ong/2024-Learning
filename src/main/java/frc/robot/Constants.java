@@ -22,6 +22,7 @@ public static final int ShooterMotor1 = 5; //Learning
 public static final int ShooterMotor2 = 6; //Learning
 
 public static final int XboxPort = 0;
+public static final int pcm = 0;
 
 public static double kP1 = 0;
 public static double kI1 = 0;
