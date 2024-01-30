@@ -7,10 +7,13 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.MovePiston;
 import frc.robot.commands.RunShooterForwards;
 import frc.robot.commands.RunShooterReverse;
 import frc.robot.commands.ShooterCMD;
+import frc.robot.commands.StopPiston;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Pneumatics;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -26,11 +29,15 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private final Pneumatics piston = new Pneumatics();
   private final XboxController xboxController = new XboxController(Constants.XboxPort);
   private final Shooter m_Shooter = new Shooter();
   //private final ShooterCMD m_drivCmd = new ShooterCMD(m_Shooter, xboxController);
   private final RunShooterForwards runShooterForwards = new RunShooterForwards(m_Shooter);
   private final RunShooterReverse runShooterReverse = new RunShooterReverse(m_Shooter);
+  private final MovePiston m_MovePiston = new MovePiston(piston);
+  private final StopPiston m_StopPiston = new StopPiston(piston);
+
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -64,6 +71,8 @@ public class RobotContainer {
     new JoystickButton(xboxController, 6).whileTrue(runShooterForwards);
     new JoystickButton(xboxController, 5).whileTrue(runShooterReverse);
     
+    new JoystickButton(xboxController, 1).whileTrue(m_MovePiston);
+    new JoystickButton(xboxController, 2).whileTrue(m_StopPiston);
   }
 
   /**
