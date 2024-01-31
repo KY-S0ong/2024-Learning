@@ -24,14 +24,15 @@ public static final int ShooterMotor2 = 6; //Learning
 public static final int XboxPort = 0;
 public static final int pcm = 0;
 
-public static double kP1 = 0;
-public static double kI1 = 0;
-public static double kD1 = 0;
+public static double kP1 = 0.1;
+public static double kI1 = 0.000005;
+public static double kD1 = 0.000025;
+public static double kV1 = 0;
 
-public static double kP2 = 0;
-public static double kI2 = 0;
-public static double kD2 = 0;
+public static double kP2 = 0.1;
+public static double kI2 = 0.000005;
+public static double kD2 = 0.000025;
 public static double kV2 = 0;
 
-
+ 
 }
