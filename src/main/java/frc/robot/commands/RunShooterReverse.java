@@ -12,7 +12,8 @@ import frc.robot.subsystems.Shooter;
 public class RunShooterReverse extends Command {
   /** Creates a new RunShooterReverse. */
   private Shooter shooter;
-  private final SlewRateLimiter filter = new SlewRateLimiter(5);
+  
+  private final SlewRateLimiter filter = new SlewRateLimiter(20);
 
   public RunShooterReverse(Shooter shooter) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -28,7 +29,7 @@ public class RunShooterReverse extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.ShooterController(filter.calculate(-50));
+    shooter.ShooterController(filter.calculate(-100));
   }
 
   // Called once the command ends or is interrupted.
