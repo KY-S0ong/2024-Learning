@@ -13,7 +13,7 @@ public class RunShooterReverse extends Command {
   /** Creates a new RunShooterReverse. */
   private Shooter shooter;
   
-  private final SlewRateLimiter filter = new SlewRateLimiter(20);
+  private final SlewRateLimiter filter = new SlewRateLimiter(15);
 
   public RunShooterReverse(Shooter shooter) {
     // Use addRequirements() here to declare subsystem dependencies.
