@@ -5,14 +5,12 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.filter.SlewRateLimiter;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Shooter;
 
 public class RunShooterForwards extends Command {
   /** Creates a new RunShooterF. */
   private final Shooter shooter;
-  private XboxController xc;
   private final SlewRateLimiter filter = new SlewRateLimiter(15);
   
   public RunShooterForwards(Shooter shooter) {
