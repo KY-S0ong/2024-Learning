@@ -14,9 +14,11 @@ import frc.robot.Constants;
 public class Shooter extends SubsystemBase {
   private double ShooterSpeed1;
   private double ShooterAcel1;
+  private double ShooterVolt1;
 
   private double ShooterSpeed2;
   private double ShooterAcel2;
+  private double ShooterVolt2;
 
   private final TalonFX ShooterMotor1 = new TalonFX(Constants.ShooterMotor1);
   private final TalonFX ShooterMotor2 = new TalonFX(Constants.ShooterMotor2);
@@ -38,13 +40,17 @@ public class Shooter extends SubsystemBase {
   public void periodic() {
     ShooterSpeed1 = ShooterMotor1.getVelocity().getValueAsDouble();
     ShooterAcel1 = ShooterMotor1.getAcceleration().getValueAsDouble();
+    ShooterVolt1 = ShooterMotor1.getMotorVoltage().getValueAsDouble();
     ShooterSpeed2 = ShooterMotor2.getVelocity().getValueAsDouble();
     ShooterAcel2 = ShooterMotor2.getAcceleration().getValueAsDouble();
+    ShooterVolt2 = ShooterMotor2.getMotorVoltage().getValueAsDouble();
 
     SmartDashboard.putNumber("Speed M1", ShooterSpeed1);
     SmartDashboard.putNumber("Aceleration M1", ShooterAcel1);
+    SmartDashboard.putNumber("Motor1 Volt", ShooterVolt1);
     SmartDashboard.putNumber("Speed M2", ShooterSpeed2);
     SmartDashboard.putNumber("Aceleration M2", ShooterAcel2);
+    SmartDashboard.putNumber("Motor2 Volt", ShooterVolt2);
 
     SmartDashboard.putNumber("P1", Constants.kP1);
     SmartDashboard.putNumber("I2;", Constants.kI1);
