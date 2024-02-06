@@ -28,10 +28,11 @@ public class RobotContainer{
   // The robot's subsystems and commands are defined here...
   
   private final XboxController xboxController = new XboxController(Constants.XboxPort);
-  private final Shooter m_Shooter = new Shooter();
+  private final Shooter Shooter = new Shooter();
   //private final ShooterCMD m_drivCmd = new ShooterCMD(m_Shooter, xboxController);
-  private final RunShooterForwards runShooterForwards = new RunShooterForwards(m_Shooter);
-  private final RunShooterReverse runShooterReverse = new RunShooterReverse(m_Shooter);
+  //private final RunShooterForwards runShooterForwards = new RunShooterForwards(m_Shooter);
+  //private final RunShooterReverse runShooterReverse = new RunShooterReverse(m_Shooter);
+  private final RunShooterForwards runShooterForwards = new RunShooterForwards(Shooter, xboxController);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -42,7 +43,7 @@ public class RobotContainer{
     // Configure the trigger bindings
     configureBindings();
     //m_Shooter.setDefaultCommand(m_drivCmd);
-   
+    Shooter.setDefaultCommand(runShooterForwards);
 
   }
 
@@ -62,8 +63,8 @@ public class RobotContainer{
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     //m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
-    new JoystickButton(xboxController, 6).whileTrue(runShooterForwards);
-    new JoystickButton(xboxController, 5).whileTrue(runShooterReverse);
+    //new JoystickButton(xboxController, 6).whileTrue(runShooterForwards);
+    //new JoystickButton(xboxController, 5).whileTrue(runShooterReverse);
  
   }
   

@@ -27,13 +27,13 @@ public class RunShooterReverse extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.ShooterController(filter.calculate(-100));
+    //shooter.ShooterController(filter.calculate(-100));
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shooter.shooterZero();
+    //hooter.shooterZero();
   }
 
   // Returns true when the command should end.
