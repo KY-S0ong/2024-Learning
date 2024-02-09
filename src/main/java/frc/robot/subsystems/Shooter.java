@@ -7,7 +7,6 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -24,7 +23,7 @@ public class Shooter extends SubsystemBase {
 
   private final TalonFX ShooterMotor1 = new TalonFX(Constants.ShooterMotor1);
   private final TalonFX ShooterMotor2 = new TalonFX(Constants.ShooterMotor2);
-
+  
   private final PIDController controller1 = new PIDController(Constants.kP1, Constants.kI1, Constants.kD1);
   private final PIDController controller2 = new PIDController(Constants.kP2, Constants.kI2, Constants.kD2);
 
@@ -69,7 +68,7 @@ public class Shooter extends SubsystemBase {
   }
 
   public void ShooterController(double input){
-    input = (Math.abs(input)<0.13) ? 0:input;
+
     ShooterMotor1.setVoltage(controller1.calculate(ShooterMotor1.getVelocity().getValueAsDouble(), input));
     ShooterMotor2.setVoltage(controller2.calculate(ShooterMotor2.getVelocity().getValueAsDouble(), input));
 
