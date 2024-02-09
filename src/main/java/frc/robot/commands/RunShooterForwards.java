@@ -29,7 +29,7 @@ public class RunShooterForwards extends Command {
   @Override
   public void execute() {
     //shooter.ShooterController(filter.calculate(100));
-    shooter.ShooterController(filter.calculate(100*xc.getRightTriggerAxis()));
+    shooter.ShooterController(filter.calculate(105*xc.getRightTriggerAxis()));
   }
 
   // Called once the command ends or is interrupted.
