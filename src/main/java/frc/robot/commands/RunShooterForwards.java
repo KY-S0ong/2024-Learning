@@ -13,7 +13,7 @@ public class RunShooterForwards extends Command {
   /** Creates a new RunShooterF. */
   private final Shooter shooter;
   private final XboxController xc;
-  private final SlewRateLimiter filter = new SlewRateLimiter(15);
+  private final SlewRateLimiter filter = new SlewRateLimiter(25);
   
   public RunShooterForwards(Shooter shooter, XboxController x) {
     // Use addRequirements() here to declare subsystem dependencies.

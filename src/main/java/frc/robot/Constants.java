@@ -14,14 +14,14 @@ package frc.robot;
  */
 public final class Constants {
   public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+    public static final int kDriverControllerPort = 1;
   }
 
 
 public static final int ShooterMotor1 = 5; //Learning
 public static final int ShooterMotor2 = 6; //Learning
 
-public static final int XboxPort = 0;
+public static final int XboxPort = 1;
 public static final int pcm = 0;
 
 public static double kP1 = 0.1;
