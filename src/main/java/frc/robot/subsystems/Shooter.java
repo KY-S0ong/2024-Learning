@@ -28,10 +28,10 @@ public class Shooter extends SubsystemBase {
   private final PIDController controller2 = new PIDController(Constants.kP2, Constants.kI2, Constants.kD2);
 
   public Shooter() {
-    //TalonFXConfiguration t = new TalonFXConfiguration();
-    //ShooterMotor1.getConfigurator().apply(t);
-    //ShooterMotor2.getConfigurator().apply(t);
-    //t.Voltage.PeakForwardVoltage = 16;    
+    TalonFXConfiguration t = new TalonFXConfiguration();
+    ShooterMotor1.getConfigurator().apply(t);
+    ShooterMotor2.getConfigurator().apply(t);
+    t.Voltage.PeakForwardVoltage = 14;    
 
     ShooterMotor1.setInverted(false);
     ShooterMotor2.setInverted(true);
