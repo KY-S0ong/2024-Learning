@@ -31,7 +31,7 @@ public class Shooter extends SubsystemBase {
     TalonFXConfiguration t = new TalonFXConfiguration();
     ShooterMotor1.getConfigurator().apply(t);
     ShooterMotor2.getConfigurator().apply(t);
-    t.Voltage.PeakForwardVoltage = 14;    
+    t.Voltage.PeakForwardVoltage = 12.4;    
 
     ShooterMotor1.setInverted(false);
     ShooterMotor2.setInverted(true);
